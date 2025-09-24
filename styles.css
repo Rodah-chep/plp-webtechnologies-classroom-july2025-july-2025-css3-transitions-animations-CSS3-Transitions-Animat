@@ -1,0 +1,478 @@
+/* ===== PART 1: CSS3 TRANSITIONS AND ANIMATIONS ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #706c73 100%);
+    min-height: 100vh;
+}
+
+/* Animated Header */
+header {
+    text-align: center;
+    padding: 2rem;
+    color: white;
+}
+
+.animated-title {
+    font-size: 3rem;
+    animation: titleSlideIn 2s ease-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+/* Keyframe Animations */
+@keyframes titleSlideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(-15px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px #667eea; }
+    50% { box-shadow: 0 0 20px #667eea, 0 0 30px #667eea; }
+}
+
+/* Section Styling */
+section {
+    background: white;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+/* Button Hover Effects */
+.button-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.hover-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #667eea;
+    color: white;
+}
+
+.pulse-btn:hover {
+    animation: pulse 0.6s infinite;
+    background: #764ba2;
+}
+
+.slide-btn:hover {
+    transform: translateX(10px);
+    background: #764ba2;
+}
+
+.rotate-btn:hover {
+    transform: rotate(360deg);
+    background: #764ba2;
+}
+
+/* Animation Showcase */
+.animation-showcase {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.floating-box {
+    background: #667eea;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.spinning-loader {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.wave-animation span {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #667eea;
+    animation: wave 1.5s ease-in-out infinite;
+}
+
+.wave-animation span:nth-child(2) { animation-delay: 0.1s; }
+.wave-animation span:nth-child(3) { animation-delay: 0.2s; }
+.wave-animation span:nth-child(4) { animation-delay: 0.3s; }
+
+/* ===== PART 2: JAVASCRIPT FUNCTIONS STYLING ===== */
+
+.function-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.calculator, .scope-demo {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.calculator input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.calculator button, .scope-demo button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.calculator button:hover, .scope-demo button:hover {
+    background: #764ba2;
+}
+
+#calc-result, #scope-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 4px;
+    border-left: 4px solid #667eea;
+}
+
+/* ===== PART 3: COMBINED CSS + JAVASCRIPT ===== */
+
+/* Interactive Cards */
+.card-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.interactive-card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.interactive-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-front {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Animated Box Controller */
+.box-controller {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.animated-box {
+    width: 150px;
+    height: 150px;
+    background: #667eea;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.animated-box.bounce {
+    animation: bounce 1s ease-in-out;
+}
+
+.animated-box.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.animated-box.glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.controls button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.controls button:hover {
+    background: #764ba2;
+}
+
+/* Modal System */
+.modal-system {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.modal-system button {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-system button:nth-child(1) { background: #28a745; color: white; }
+.modal-system button:nth-child(2) { background: #ffc107; color: black; }
+.modal-system button:nth-child(3) { background: #17a2b8; color: white; }
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: white;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.modal-body {
+    padding: 1rem;
+}
+
+/* Loading Animation */
+.loading-controller {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.loading-controller button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.loading-container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.loading-container.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.loading-spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .animated-title {
+        font-size: 2rem;
+    }
+    
+    section {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .button-container {
+        justify-content: center;
+    }
+    
+    .animation-showcase {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

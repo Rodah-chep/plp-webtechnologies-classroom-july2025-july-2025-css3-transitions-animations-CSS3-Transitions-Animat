@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive CSS & JavaScript Experience</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with animated title -->
+    <header>
+        <h1 class="animated-title">Interactive Experience</h1>
+        <p class="subtitle">Bringing Web Pages to Life with CSS & JavaScript</p>
+    </header>
+
+    <!-- Part 1: CSS-Only Animations -->
+    <section class="css-animations">
+        <h2>Part 1: CSS3 Transitions & Animations</h2>
+        
+        <!-- Hover Effects -->
+        <div class="button-container">
+            <button class="hover-btn pulse-btn">Pulse Effect</button>
+            <button class="hover-btn slide-btn">Slide Effect</button>
+            <button class="hover-btn rotate-btn">Rotate Effect</button>
+        </div>
+
+        <!-- Continuous Animations -->
+        <div class="animation-showcase">
+            <div class="floating-box">Floating</div>
+            <div class="spinning-loader"></div>
+            <div class="wave-animation">
+                <span>W</span><span>a</span><span>v</span><span>e</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part 2: JavaScript Functions Demo -->
+    <section class="js-functions">
+        <h2>Part 2: JavaScript Functions & Scope</h2>
+        
+        <div class="function-demo">
+            <div class="calculator">
+                <h3>Function Calculator</h3>
+                <input type="number" id="num1" placeholder="Number 1">
+                <input type="number" id="num2" placeholder="Number 2">
+                <button onclick="performCalculation()">Calculate</button>
+                <div id="calc-result"></div>
+            </div>
+
+            <div class="scope-demo">
+                <h3>Scope Demonstration</h3>
+                <button onclick="demonstrateScope()">Show Scope</button>
+                <div id="scope-result"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part 3: Combined CSS + JavaScript -->
+    <section class="combined-effects">
+        <h2>Part 3: CSS + JavaScript Integration</h2>
+        
+        <!-- Interactive Cards -->
+        <div class="card-container">
+            <div class="interactive-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Click to Flip</h3>
+                        <p>Front Side</p>
+                    </div>
+                    <div class="card-back">
+                        <h3>Flipped!</h3>
+                        <p>Back Side</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Box Controller -->
+        <div class="box-controller">
+            <div class="animated-box" id="animatedBox">Animated Box</div>
+            <div class="controls">
+                <button onclick="animateBox('bounce')">Bounce</button>
+                <button onclick="animateBox('shake')">Shake</button>
+                <button onclick="animateBox('glow')">Glow</button>
+                <button onclick="resetBox()">Reset</button>
+            </div>
+        </div>
+
+        <!-- Modal System -->
+        <div class="modal-system">
+            <button onclick="openModal('success')">Success Modal</button>
+            <button onclick="openModal('warning')">Warning Modal</button>
+            <button onclick="openModal('info')">Info Modal</button>
+        </div>
+
+        <!-- Loading Animation Controller -->
+        <div class="loading-controller">
+            <button onclick="toggleLoading()">Toggle Loading</button>
+            <div class="loading-container" id="loadingContainer">
+                <div class="loading-spinner"></div>
+                <p>Loading...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+        <div class="modal" id="modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 id="modalTitle">Modal Title</h3>
+                <button class="close-btn" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage">Modal message content</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
